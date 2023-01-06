@@ -1,0 +1,20 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: shopstate
+auth:
+  secretStore: kubernetes # Change to "secretstore" if running locally
+spec:
+  type: state.redis
+  version: v1
+  metadata:
+  - name: redisHost
+    #value: localhost:6379
+    value: "globoticketredis-dapr.redis.cache.windows.net:6379"        
+  - name: redisPassword
+    value:
+    secretKeyRef: 
+        name: rediscache-secret
+        key:  redisPassword
+  - name: actorStateStore
+    value: "true"

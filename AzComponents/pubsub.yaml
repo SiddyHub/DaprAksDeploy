@@ -1,0 +1,15 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsub
+auth:
+  secretStore: kubernetes   # Change to "secretstore" if running locally
+spec:
+  type: pubsub.azure.servicebus 
+  version: v1 
+  metadata:
+    - name: connectionString
+      value:
+      secretKeyRef: 
+        name: servicebus-secret
+        key: connectionString
