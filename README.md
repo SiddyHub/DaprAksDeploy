@@ -31,8 +31,11 @@ To create a Kubernetes cluster in Azure, these are the steps we will be going th
 1. Creating an Azure resource group
 In a Windows terminal, log in to Azure by using the Azure CLI. We could also use the portal here, but the CLI helps us keep a consistent experience between Azure and Kubernetes:
 `az login`
+
 Connect to the subscription that we want to provision the cluster in. 
+
 `az account set --subscription "<Your Subscription GUID>"`
+
 All the commands that we will be issuing via the Azure CLI will be issued in the context of the specified Azure subscription.
 
 2. Creating an AKS cluster
@@ -177,3 +180,13 @@ After all Dapr Components, Kubernetes files and NGINX Ingress Controller is depl
 `https://<YOUR-STATIC-IP-ADDRESS>`
 
 Your browser will warn you of security risks because the certificate is not trusted. Proceed anyway!
+
+## Dapr Dashboard
+
+With `dapr dashboard -k` command, we can see that all our Dapr applications and components have now been configured in Kubernetes.
+
+## Troubleshooting
+
+- Make Sure all the secrets have been configured for the Azure services like Cosmos DB, Azure Redis Cache, Azure Service bus and SQL Connection Strings and inputted in `~\Deploy\deploy-secrets.ps1`
+- If getting issues with Azure Redis Cache statestore, make sure Non-SSL port is enabled
+- Make sure External Payment gateway under `Fake` folder is deployed and it's URL configured in `payment.yaml` file under `~\Deploy\k8s` folder.
