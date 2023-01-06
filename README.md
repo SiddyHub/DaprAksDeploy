@@ -103,6 +103,7 @@ We have to create database for our API services with following steps:
 2. Create database for each service.
 
    For example to create an Order SQL database execute Azure CLI command by runing following command
+
    `az sql db create -g daprrgdb -s globoticket -n GloboTicketOrderDb --service-objective Basic`
 
    Similarly, create database for ShoppingDB and DiscountDB using above command
@@ -110,6 +111,7 @@ We have to create database for our API services with following steps:
 3. Run `sqlcmd` with the Migration Scripts (created using `dotnet ef migration script` and already added in Solution files for services)
 
    So for order service in command prompt, `cd` inside `GloboTicket.Services.Ordering` directory, run sqlcmd with values from Step 2 and with `orderDb-create.sql` created and added for this service.
+
    `sqlcmd -S tcp:globoticket.database.windows.net,1433 -d GloboTicketOrderDb -P **** -U globoticket-user -i OrderDb-create.sql`
 
 *Follow above steps for ShoppingDB and DiscountDB
@@ -172,11 +174,14 @@ We need to configure our Kubernetes cluster with an ingress controller (IC). For
 Inside `Deploy\deploy-nginx-dapr.ps1` file in the solution, contains all the steps, charted with Helm, for preparing the Nginx IC and the ingresses according to our sample solution. The Static IP Address noted previously needed to be used in this script.
 
 We are using NGINX IC in combination with Dapr configuration, which is available in the `Deploy\nginx-dapr-annotations.yaml` file, which makes it a proper Dapr application, with its local Dapr sidecar, and therefore with access to any other application, without the need for us to configure Kubernetes services for our APIs.
+
 With this configuration we can influence the deployment of the NGINX IC with Dapr-specific annotations, and once deployed, the Pods of the NGINX IC will be injected with the Dapr sidecar container.
 
 ## Access our Application
 
-After all Dapr Components, Kubernetes files and NGINX Ingress Controller is deployed we can access our application using our Static IP Address. It’s best to use an incognito session or private window.
+After all Dapr Components, Kubernetes files and NGINX Ingress Controller is deployed we can access our application using our Static IP Address. 
+It’s best to use an incognito session or private window.
+
 `https://<YOUR-STATIC-IP-ADDRESS>`
 
 Your browser will warn you of security risks because the certificate is not trusted. Proceed anyway!
