@@ -18,7 +18,7 @@ This version of the code uses **Dapr 1.7**
 
 ## Note
 
-The Deployment Scripts are alreay provided with the solution files
+The Deployment Scripts are alreay provided with the solution files under Deploy folder
 
 ## Set up Kubernetes (AKS) with dapr
 
