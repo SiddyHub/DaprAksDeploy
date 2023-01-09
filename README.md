@@ -60,7 +60,7 @@ Once the cluster has been created, we need to install the Kubernetes tools on ou
 
 With the Azure CLI, we can also retrieve the credentials we need to gain administrative access to the cluster. These credentials will be merged into the default location for the Kubernetes configuration file:
 `az aks get-credentials --name dapraksdb --resource-group daprrgdb`
-> Merged "daprk8saksdb” as current context in C:\Users\user\.kube\config
+> Merged "daprk8saksdbâ€ as current context in C:\Users\user\.kube\config
 
 4. Installing Dapr on Kubernetes
 
@@ -81,7 +81,7 @@ To verify the installation completed successfully, execute this command:
 
 ## Building Docker Images of our Application and Upload it to Azure Container Registry
 
-** You can use ready-to-use docker images used in the Kubernetes yaml files in this solution (Under Deploy -> k8s) to expedite your development, and skip this section. **
+**You can use ready-to-use docker images used in the Kubernetes yaml files in this solution (Under Deploy -> k8s) to expedite your development, and skip this section.**
 
 For more information on how to publish ASP.NET projects with the Docker container format, I suggest that you read the documentation [here](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-3.1)
 
@@ -180,7 +180,7 @@ With this configuration we can influence the deployment of the NGINX IC with Dap
 ## Access our Application
 
 After all Dapr Components, Kubernetes files and NGINX Ingress Controller is deployed we can access our application using our Static IP Address. 
-It’s best to use an incognito session or private window.
+Itâ€™s best to use an incognito session or private window.
 
 `https://<YOUR-STATIC-IP-ADDRESS>`
 
