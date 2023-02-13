@@ -11,7 +11,7 @@ spec:
       secretName: tls-secret
   rules:
   - host: app.<your IP Address>.nip.io
-  - http:
+    http:
       paths:       
       - path: /
         pathType: Prefix

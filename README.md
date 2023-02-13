@@ -182,7 +182,7 @@ With this configuration we can influence the deployment of the NGINX IC with Dap
 After all Dapr Components, Kubernetes files and NGINX Ingress Controller is deployed we can access our application using our Static IP Address. 
 It’s best to use an incognito session or private window.
 
-`https://<YOUR-STATIC-IP-ADDRESS>`
+`https://app.<YOUR-STATIC-IP-ADDRESS>.nip.io`
 
 Your browser will warn you of security risks because the certificate is not trusted. Proceed anyway!
 
